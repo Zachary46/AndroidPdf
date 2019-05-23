@@ -15,6 +15,10 @@
             {
 		            var container = document.getElementById("container");
 		            var url= UrlParm.parm("pdfpath");
+		    	    //以下两行代码解决不能显示中文的问题	
+		            PDFJS.cMapUrl= 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.0.288/cmaps/'
+		            PDFJS.cMapPacked= true
+		    
 		            PDFJS.workerSrc = './pdfjs/pdf.worker.js';
 		            PDFJS.getDocument(url).then(function getPdfHelloWorld(pdf) {
 		                for (var i = 1; i < pdf.numPages+1; i++) {
